@@ -1,5 +1,5 @@
 import Button from "./Button";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="flex flex-row  justify-between items-center">
@@ -10,9 +10,12 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex flex-row gap-[30px]">
-        <Button text="Home" />
-        <Button text="All Blogs" />
-        {/* <Button text="Add Blog" /> */}
+        <Link to="/">
+          <Button text="Home" />
+        </Link>
+        <Link to="/Allblogs">
+          <Button text="All Blogs" />
+        </Link>
       </div>
     </div>
   );

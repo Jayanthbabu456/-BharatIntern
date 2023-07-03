@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 
-const header = () => {
+const Header = () => {
   return (
     <div
       className="w-[88%] mx-auto h-[15vh] py-[20px]"
@@ -12,4 +12,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
