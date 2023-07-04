@@ -1,9 +1,18 @@
 import Card from "./Card";
 
-const AllBlogs = () => {
+const AllBlogs = ({ blogs }) => {
   return (
     <div className="w-[88%] mx-auto">
-      <Card />
+      <div>
+        <p className="text-4xl font-montserrat font-semibold text-[#fff] text-center">
+          All Blogs
+        </p>
+      </div>
+      <div className="flex flex-wrap gap-[20px]  overflow-scroll scroll h-[65vh] py-[30px] justify-center">
+        {blogs.map((blog, index) => (
+          <Card key={index} blog={blog} />
+        ))}
+      </div>
     </div>
   );
 };

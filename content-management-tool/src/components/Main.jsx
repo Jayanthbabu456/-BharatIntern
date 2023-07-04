@@ -42,7 +42,7 @@ const Main = () => {
             <img
               src="./src/assets/Blogbanner.jpeg"
               alt="Blog"
-              className="w-full h-full transition-all duration-300 transform group-hover:scale-105"
+              className="w-full h-full transition-all duration-300 transform group-hover:scale-105 border-2 border-[#fff]"
             />
           </div>
         </div>
