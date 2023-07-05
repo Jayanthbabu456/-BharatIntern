@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const AllBlogs = ({ blogs, setBlogData }) => {
+const AllBlogs = ({ blogs }) => {
   return (
     <div className="w-[88%] mx-auto">
       <div>

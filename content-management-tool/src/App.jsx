@@ -7,10 +7,16 @@ import BlogForm from "./components/BlogForm";
 import Blog from "./components/Blog";
 import { v4 as uuid } from "uuid";
 
+const MAX_BLOGS_LIMIT = 1000;
+
 function App() {
   const [blogData, setBlogData] = useState(() => {
     const storedBlogs = localStorage.getItem("blogs");
-    return storedBlogs ? JSON.parse(storedBlogs) : [];
+    if (storedBlogs) {
+      return JSON.parse(storedBlogs);
+    } else {
+      return [];
+    }
   });
 
   const handleFormSubmit = (event, formData) => {
@@ -21,11 +27,21 @@ function App() {
       return;
     }
     const blogWithId = { ...formData, id: uuid() };
-    setBlogData((prevData) => [...prevData, blogWithId]);
+    setBlogData((prevData) => {
+      const updatedData = [...prevData, blogWithId];
+      if (updatedData.length > MAX_BLOGS_LIMIT) {
+        updatedData.splice(0, updatedData.length - MAX_BLOGS_LIMIT);
+      }
+      return updatedData;
+    });
   };
 
   useEffect(() => {
-    localStorage.setItem("blogs", JSON.stringify(blogData));
+    try {
+      localStorage.setItem("blogs", JSON.stringify(blogData));
+    } catch (error) {
+      console.error("Storage quota exceeded:", error);
+    }
   }, [blogData]);
 
   return (
@@ -59,5 +75,4 @@ function BlogPage({ blogs }) {
 
   return <Blog blog={blog} />;
 }
-
 export default App;
