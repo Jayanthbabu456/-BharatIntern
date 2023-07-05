@@ -13,7 +13,7 @@ const Main = () => {
         <div
           className="w-[55%] p-4 "
           data-aos="fade-right"
-          data-aos-delay="800"
+          data-aos-delay="900"
         >
           <h2 className="text-5xl font-semibold mb-5 text-white font-montserrat">
             Start Writing Your Blog
@@ -36,7 +36,7 @@ const Main = () => {
         <div
           className="w-[45%] p-4 relative"
           data-aos="fade-left"
-          data-aos-delay="1000"
+          data-aos-delay="1500"
         >
           <div className="group overflow-hidden rounded-lg">
             <img
