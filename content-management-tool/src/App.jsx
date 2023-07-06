@@ -11,7 +11,7 @@ import EditBlogForm from "./components/EditBlogForm";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const MAX_BLOGS_LIMIT = 1000;
+const MAX_BLOGS_LIMIT = 10000;
 
 function App() {
   const [blogData, setBlogData] = useState(() => {

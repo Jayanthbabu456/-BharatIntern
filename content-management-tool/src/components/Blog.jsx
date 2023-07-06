@@ -180,7 +180,7 @@ const Blog = ({ blog, onDelete }) => {
           <div className="w-[70vw] mx-auto">
             <p className="text-[#fff] text-[20px] pt-[25px]">{description}</p>
           </div>
-          <div className="flex justify-end items-center gap-[15px] pr-[30px]">
+          <div className="flex justify-end items-center gap-[15px] pr-[30px] pb-[20px]">
             <Link to={`/edit/${blog.id}`}>
               <button className="outline-none text-white text-[16px] font-semibold rounded-lg px-4 py-2 cursor-pointer  bg-gradient-to-r from-[#ff9a9e] to-[#f6416c] font-montserrat border border-[#fff] flex items-center gap-[10px]">
                 <svg
