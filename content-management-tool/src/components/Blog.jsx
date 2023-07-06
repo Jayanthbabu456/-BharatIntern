@@ -107,8 +107,6 @@
 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Blog = ({ blog, onDelete }) => {
   const navigate = useNavigate();
@@ -120,7 +118,6 @@ const Blog = ({ blog, onDelete }) => {
 
   const handleDelete = () => {
     onDelete(id);
-    toast.success("Blog deleted successfully!");
 
     navigate("/Allblogs");
   };
@@ -218,7 +215,6 @@ const Blog = ({ blog, onDelete }) => {
               <p>Delete</p>
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </>

@@ -8,6 +8,8 @@ import BlogForm from "./components/BlogForm";
 import Blog from "./components/Blog";
 import { v4 as uuid } from "uuid";
 import EditBlogForm from "./components/EditBlogForm";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MAX_BLOGS_LIMIT = 1000;
 
@@ -36,6 +38,7 @@ function App() {
       }
       return updatedData;
     });
+    toast.success("Blog submitted successfully!");
   };
 
   useEffect(() => {
@@ -56,10 +59,12 @@ function App() {
 
     setBlogData(updatedBlogData);
     navigate(`/blog/${updatedBlog.id}`);
+    toast.success("Blog updated successfully!");
   };
   const deleteBlog = (blogId) => {
     const updatedBlogData = blogData.filter((blog) => blog.id !== blogId);
     setBlogData(updatedBlogData);
+    toast.error("Blog deleted successfully!");
   };
 
   return (
