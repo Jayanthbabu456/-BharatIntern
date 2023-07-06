@@ -2,7 +2,7 @@ import { useState } from "react";
 import Card from "./Card";
 import Buttons from "./Buttons";
 
-const AddInputs = ({ add, tasks, setTasks }) => {
+const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -15,8 +15,10 @@ const AddInputs = ({ add, tasks, setTasks }) => {
     const id = tasks.length === 0 ? 1 : tasks.length + 1;
     const details = {
       id: id,
+      username: selectedUser,
       task: title,
       desc: description,
+      date: new Date().toLocaleDateString(),
       complete: false,
     };
     setTasks([...tasks, details]);
@@ -62,7 +64,7 @@ const AddInputs = ({ add, tasks, setTasks }) => {
       </div>
       {tasks.length === 0 ? (
         <div className=" w-full h-[280px] px-[10px] rounded-md flex flex-col justify-center items-center">
-          <p className="text-[30px] font-medium text-[#fff]">
+          <p className="text-[30px] font-medium text-[#fff] font-montserrat">
             No tasks yet. Start by adding a task.
           </p>
         </div>
@@ -70,9 +72,11 @@ const AddInputs = ({ add, tasks, setTasks }) => {
         <div className="flex flex-col gap-4 overflow-y-auto px-[35px] py-10">
           {tasks.map((t) => (
             <Card
+              username={t.username}
               title={t.task}
               description={t.desc}
               key={t.id}
+              date={t.date}
               handleDelete={() => handleDelete(t.id)}
               handleComplete={() => handleComplete(t.id)}
               complete={t.complete}

@@ -1,10 +1,4 @@
-const SelectUser = ({
-  selectedUser,
-  setSelectedUser,
-  users,
-  handleAdd,
-  handleDeleteUser,
-}) => {
+const SelectUser = ({ selectedUser, setSelectedUser, users, handleAdd }) => {
   return (
     <div className="flex justify-between items-center">
       <div className="bg-[#f1af71] text-[#000] rounded-md font-poppins">
@@ -24,20 +18,12 @@ const SelectUser = ({
         </select>
       </div>
 
-      <div className="flex gap-[20px]">
-        <button
-          className="py-[15px] px-[20px] text-[16px] font-bold rounded-md bg-[#f1af71]"
-          onClick={handleAdd}
-        >
-          ADD TASK
-        </button>
-        <button
-          className="py-[15px] px-[20px] text-[16px] font-bold rounded-md bg-[#f1af71]"
-          onClick={handleDeleteUser(selectedUser)}
-        >
-          DELETE USER
-        </button>
-      </div>
+      <button
+        className="py-[15px] px-[20px] text-[16px] font-bold rounded-md bg-[#f1af71]"
+        onClick={handleAdd}
+      >
+        ADD TASK
+      </button>
     </div>
   );
 };
