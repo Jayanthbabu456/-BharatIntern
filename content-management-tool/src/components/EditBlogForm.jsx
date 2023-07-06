@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 
-const BlogForm = ({ onFormSubmit }) => {
+const EditBlogForm = ({ blog, onFormSubmit }) => {
   const [formData, setFormData] = useState({
     wallpaper: "",
     title: "",
@@ -9,6 +9,16 @@ const BlogForm = ({ onFormSubmit }) => {
     userImage: "",
     username: "",
   });
+
+  useEffect(() => {
+    setFormData({
+      wallpaper: blog.wallpaper,
+      title: blog.title,
+      description: blog.description,
+      userImage: blog.userImage,
+      username: blog.username,
+    });
+  }, [blog]);
 
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
@@ -36,20 +46,22 @@ const BlogForm = ({ onFormSubmit }) => {
       alert("All fields are required");
       return;
     }
-    console.log(formData);
-    onFormSubmit(formData);
-    setFormData({
-      wallpaper: "",
-      title: "",
-      description: "",
-      userImage: "",
-      username: "",
-    });
+
+    const updatedBlog = {
+      ...blog,
+      wallpaper: formData.wallpaper,
+      title: formData.title,
+      description: formData.description,
+      userImage: formData.userImage,
+      username: formData.username,
+    };
+
+    onFormSubmit(updatedBlog);
   };
 
   return (
     <div className="flex flex-col gap-[10px] w-[88%] mx-auto h-[80vh] items-center">
-      <p className="text-[30px] text-[#fff] font-montserrat">WRITE BLOG</p>
+      <p className="text-[30px] text-[#fff] font-montserrat">EDIT BLOG</p>
       <form
         className="h-[full] w-[50vw] bg-transparent flex justify-center  flex-col shadow-xl rounded-xl p-[25px] border border-[#fff]/20"
         onSubmit={handleSubmit}
@@ -118,4 +130,4 @@ const BlogForm = ({ onFormSubmit }) => {
   );
 };
 
-export default BlogForm;
+export default EditBlogForm;

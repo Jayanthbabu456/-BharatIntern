@@ -1,8 +1,15 @@
 import Card from "./Card";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "./Button";
 
-const AllBlogs = ({ blogs }) => {
+const AllBlogs = ({ blogs, setBlogData }) => {
+  const [deletedBlogId, setDeletedBlogId] = useState(null);
+
+  const navigate = useNavigate();
+
   return (
-    <div className="w-[88%] mx-auto">
+    <div className="w-[88%] mx-auto ">
       <div>
         <p className="text-4xl font-montserrat font-semibold text-[#fff] text-center">
           All Blogs
@@ -13,10 +20,17 @@ const AllBlogs = ({ blogs }) => {
           No blogs available
         </p>
       ) : (
-        <div className="flex flex-wrap gap-[20px]  overflow-scroll scroll h-[65vh] py-[30px] justify-center">
-          {blogs.map((blog, index) => (
-            <Card key={index} blog={blog} />
-          ))}
+        <div className="overflow-auto scroll h-[65vh]">
+          <div className="flex flex-wrap gap-[20px]   py-[30px] justify-center ">
+            {blogs.map((blog) => (
+              <Card key={blog.id} blog={blog} />
+            ))}
+          </div>
+          <div className="flex justify-center py-[10px]">
+            <Link to="/writeblog">
+              <Button text="Write Blog" />
+            </Link>
+          </div>
         </div>
       )}
     </div>
