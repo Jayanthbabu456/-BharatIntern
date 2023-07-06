@@ -38,6 +38,7 @@ function App() {
       }
       return updatedData;
     });
+    navigate("/Allblogs");
     toast.success("Blog submitted successfully!");
   };
 

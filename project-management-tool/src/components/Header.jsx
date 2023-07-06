@@ -1,15 +1,9 @@
 const Header = ({ handleAdd }) => {
   return (
-    <div className="flex flex-row justify-between items-center px-10">
-      <p className="text-[#fff]  my-[30px] text-[35px] font-semibold">
-        TASK MANAGER
+    <div className="bg-[#12343b] w-[90%] mx-auto h-[100px] shadow mb-[10px]  rounded-md">
+      <p className="text-[#fff] text-[35px] font-semibold flex justify-center items-center pt-[20px] font-montserrat">
+        TaskMaster
       </p>
-      <button
-        className="py-[15px] px-[20px] text-[16px] font-bold rounded-md bg-[#f1af71]"
-        onClick={handleAdd}
-      >
-        ADD
-      </button>
     </div>
   );
 };

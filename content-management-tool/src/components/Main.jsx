@@ -2,6 +2,7 @@ import Button from "./Button";
 import AOS from "aos";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import blogimage from "../assets/Blogbanner.jpeg";
 
 const Main = () => {
   useEffect(() => {
@@ -40,7 +41,7 @@ const Main = () => {
         >
           <div className="group overflow-hidden rounded-lg">
             <img
-              src="./src/assets/Blogbanner.jpeg"
+              src={blogimage}
               alt="Blog"
               className="w-full h-full transition-all duration-300 transform group-hover:scale-105 border-2 border-[#fff]"
             />

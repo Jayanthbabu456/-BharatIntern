@@ -35,7 +35,7 @@ const AddInputs = ({ add, tasks, setTasks }) => {
 
   return (
     <div>
-      <div className="flex flex-col space-y-6 px-10 py-5">
+      <div className="flex flex-col space-y-6 px-10 pt-16">
         {add === true ? (
           <>
             <input
@@ -61,7 +61,7 @@ const AddInputs = ({ add, tasks, setTasks }) => {
         ) : null}
       </div>
       {tasks.length === 0 ? (
-        <div className=" w-full h-[380px] px-[10px] rounded-md flex flex-col justify-center items-center">
+        <div className=" w-full h-[280px] px-[10px] rounded-md flex flex-col justify-center items-center">
           <p className="text-[30px] font-medium text-[#fff]">
             No tasks yet. Start by adding a task.
           </p>

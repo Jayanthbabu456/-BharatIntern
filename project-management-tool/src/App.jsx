@@ -1,45 +1,13 @@
-// import { useState, useEffect } from "react";
-// import AddInputs from "./components/AddInputs";
-// import Header from "./components/Header";
-
-// const App = () => {
-//   const [tasks, setTasks] = useState([]);
-//   const [add, setAdd] = useState(false);
-
-//   useEffect(() => {
-//     let storedTasks = localStorage.getItem("tasks");
-//     if (storedTasks) {
-//       storedTasks = JSON.parse(storedTasks);
-//       setTasks(storedTasks);
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-//   }, [tasks]);
-
-//   const handleAdd = () => {
-//     setAdd(!add);
-//   };
-
-//   return (
-//     <div className="bg-gradient-to-b from-[#e1b382] to-[#c89666] w-[100vw] h-[100vh] flex justify-center items-center overflow-y-auto ">
-//       <div className="bg-[#12343b] w-[330px] h-[550px] p-[30px] shadow mb-[10px]  rounded-md overflow-y-auto md:w-[60vw] md:h-[650px]">
-//         <Header handleAdd={handleAdd} />
-//         <AddInputs add={add} tasks={tasks} setTasks={setTasks} />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;
-
 import { useState, useEffect } from "react";
 import AddInputs from "./components/AddInputs";
 import Header from "./components/Header";
+import AddUser from "./components/AddUser";
+import SelectUser from "./components/SelectUser";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState("");
   const [add, setAdd] = useState(false);
 
   useEffect(() => {
@@ -65,12 +33,37 @@ const App = () => {
   const handleAdd = () => {
     setAdd(!add);
   };
-
+  const handleAddUser = () => {
+    if (selectedUser.trim() !== "") {
+      setUsers([...users, selectedUser]);
+      setSelectedUser("");
+    }
+  };
+  const handleDeleteUser = (user) => {
+    const updatedUsers = users.filter((u) => u !== user);
+    setUsers(updatedUsers);
+  };
   return (
-    <div className="bg-gradient-to-b from-[#e1b382] to-[#c89666] w-[100vw] h-[100vh] flex justify-center items-center overflow-y-auto ">
-      <div className="bg-[#12343b] w-[330px] h-[550px] p-[30px] shadow mb-[10px]  rounded-md overflow-y-auto md:w-[60vw] md:h-[650px]">
-        <Header handleAdd={handleAdd} />
-        <AddInputs add={add} tasks={tasks} setTasks={setTasks} />
+    <div className="bg-gradient-to-b from-[#e1b382] to-[#c89666] w-[100vw] h-[100vh] py-8 overflow-hidden">
+      <Header handleAdd={handleAdd} />
+      <div className="flex w-[90%] mx-auto gap-[30px] pt-[15px]">
+        <div className="bg-[#12343b] w-[40%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md">
+          <AddUser
+            selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+            handleAddUser={handleAddUser}
+          />
+        </div>
+        <div className="bg-[#12343b] w-[60%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md overflow-auto scroll">
+          <SelectUser
+            selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+            users={users}
+            handleAdd={handleAdd}
+            handleDeleteUser={handleDeleteUser}
+          />
+          <AddInputs add={add} tasks={tasks} setTasks={setTasks} />
+        </div>
       </div>
     </div>
   );
