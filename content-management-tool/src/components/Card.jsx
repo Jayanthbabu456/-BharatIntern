@@ -36,7 +36,7 @@ const Card = ({ blog }) => {
   }
 
   if (!blog) {
-    return null; // Return null or handle the case when blog prop is not provided
+    return null;
   }
 
   return (
@@ -47,7 +47,7 @@ const Card = ({ blog }) => {
             <img className="w-full h-[20vh]" src={blog.wallpaper} alt="Card" />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{blog.title}</div>
-              <p className="text-gray-700 text-base">{description}</p>
+              <p className="text-gray-700 text-[18px]">{description}</p>
             </div>
             <div className="px-6 py-4 flex items-center justify-between">
               <div className="flex items-center ">
@@ -65,6 +65,9 @@ const Card = ({ blog }) => {
                   </p>
                 </div>
               </div>
+              <button className="outline-none text-white text-[14px] font-semibold rounded-lg p-2  cursor-pointer  bg-gradient-to-r from-[#ff9a9e] to-[#f6416c] font-montserrat border border-[#fff]">
+                View Blog
+              </button>
             </div>
           </div>
         </Link>
