@@ -80,7 +80,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route
             path="/Allblogs"
-            element={<AllBlogs blogs={blogData} setBlogData={setBlogData} />}
+            element={<AllBlogs blogs={blogData}  />}
           />
           <Route
             path="/Writeblog"

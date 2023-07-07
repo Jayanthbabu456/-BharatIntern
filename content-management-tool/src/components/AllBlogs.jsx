@@ -1,13 +1,8 @@
 import Card from "./Card";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
-const AllBlogs = ({ blogs, setBlogData }) => {
-  const [deletedBlogId, setDeletedBlogId] = useState(null);
-
-  const navigate = useNavigate();
-
+const AllBlogs = ({ blogs }) => {
   return (
     <div className="w-[88%] mx-auto ">
       <div>
