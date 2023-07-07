@@ -40,6 +40,10 @@ const App = () => {
     setAdd(!add);
   };
   const handleAddUser = () => {
+    if (!selectedUser) {
+      alert("Please enter a User.");
+      return;
+    }
     if (selectedUser.trim() !== "") {
       setUsers([...users, selectedUser]);
       setSelectedUser("");

@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 const AddUser = ({
   selectedUser,
   setSelectedUser,
@@ -7,14 +5,6 @@ const AddUser = ({
   users,
   handleDeleteUser,
 }) => {
-  // const [username, setUsername] = useState("");
-
-  // const addUser = () => {
-  //   if (username.trim() !== "") {
-  //     handleAddUser(username);
-  //     setUsername("");
-  //   }
-  // };
   return (
     <div className="flex flex-col  justify-center items-center h-[400px] gap-[10px]">
       <div>

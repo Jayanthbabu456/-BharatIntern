@@ -9,11 +9,15 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    toast.success("Task Added successfully!");
     if (!title || !description) {
       alert("Please enter a task and description.");
       return;
     }
+    if (!selectedUser) {
+      alert("Please Select the user from droplist");
+      return;
+    }
+    toast.success("Task Added successfully!");
     const id = tasks.length === 0 ? 1 : tasks.length + 1;
     const details = {
       id: id,
@@ -60,6 +64,8 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
             <Buttons
               handleSave={handleSave}
               setTitle={setTitle}
+              title={title}
+              description={description}
               setDescription={setDescription}
             />
           </>

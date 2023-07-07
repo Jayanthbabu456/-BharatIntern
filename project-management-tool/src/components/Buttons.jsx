@@ -1,7 +1,17 @@
 import { toast } from "react-toastify";
 
-const Buttons = ({ handleSave, setTitle, setDescription }) => {
+const Buttons = ({
+  handleSave,
+  setTitle,
+  setDescription,
+  title,
+  description,
+}) => {
   const handleCancle = () => {
+    if (title === "" && description === "") {
+      alert("Fields are Emppty");
+      return;
+    }
     setTitle("");
     setDescription("");
     toast.warn("Task cancelled successfully!");

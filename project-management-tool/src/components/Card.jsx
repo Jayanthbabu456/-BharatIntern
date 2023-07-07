@@ -13,11 +13,15 @@ const Card = ({
   const [isComplete, setIsComplete] = useState(complete);
 
   const toggleComplete = () => {
+    const updatedComplete = !isComplete;
+    handleComplete(updatedComplete);
     setIsComplete(!isComplete);
-    handleComplete();
-    toast.success("Task completed successfully!");
+    toast[updatedComplete ? "success" : "warn"](
+      updatedComplete
+        ? "Task completed successfully!"
+        : "Task marked as incomplete!"
+    );
   };
-
   return (
     <div
       className={`border-2 border-[#c89666] w-full h-[180px] px-[10px] overflow-y-auto rounded-md flex flex-col justify-center ${
@@ -25,18 +29,18 @@ const Card = ({
       }`}
     >
       <p className="text-[20px] font-medium text-[#fff] font-poppins">
-        {username}
+        UserName: {username}
       </p>
       <p className="text-[20px] font-medium text-[#fff] font-poppins">
-        {title}
+        Title:{title}
       </p>
       <p className="text-[20px] font-medium text-[#fff] font-poppins">
-        {description}
+        Description:{description}
       </p>
       <div className="flex flex-row justify-between items-center mt-5">
         <div>
           <p className="text-[20px] font-medium text-[#fff] font-poppins">
-            {date}
+            Date:{date}
           </p>
         </div>
         <div className="flex items-center gap-[10px]">
