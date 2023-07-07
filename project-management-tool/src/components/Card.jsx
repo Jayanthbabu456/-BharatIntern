@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Card = ({
   username,
@@ -14,6 +15,7 @@ const Card = ({
   const toggleComplete = () => {
     setIsComplete(!isComplete);
     handleComplete();
+    toast.success("Task completed successfully!");
   };
 
   return (

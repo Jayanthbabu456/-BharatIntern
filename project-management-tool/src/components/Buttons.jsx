@@ -1,7 +1,10 @@
+import { toast } from "react-toastify";
+
 const Buttons = ({ handleSave, setTitle, setDescription }) => {
   const handleCancle = () => {
     setTitle("");
     setDescription("");
+    toast.warn("Task cancelled successfully!");
   };
   return (
     <div className="flex flex-row gap-4 pt-5">

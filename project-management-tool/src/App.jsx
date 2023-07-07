@@ -3,6 +3,8 @@ import AddInputs from "./components/AddInputs";
 import Header from "./components/Header";
 import AddUser from "./components/AddUser";
 import SelectUser from "./components/SelectUser";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -42,6 +44,7 @@ const App = () => {
       setUsers([...users, selectedUser]);
       setSelectedUser("");
     }
+    toast.success("User Added successfully!");
   };
 
   const handleDeleteUser = (index) => {
@@ -49,6 +52,7 @@ const App = () => {
     updatedUsers.splice(index, 1);
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+    toast.warn("User Deleted successfully!");
 
     if (selectedUser === users[index]) {
       setSelectedUser("");

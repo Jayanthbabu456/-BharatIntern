@@ -1,4 +1,5 @@
-import { useState } from "react";
+// import { useState } from "react";
+
 const AddUser = ({
   selectedUser,
   setSelectedUser,
@@ -6,14 +7,14 @@ const AddUser = ({
   users,
   handleDeleteUser,
 }) => {
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
 
-  const addUser = () => {
-    if (username.trim() !== "") {
-      handleAddUser();
-      setUsername("");
-    }
-  };
+  // const addUser = () => {
+  //   if (username.trim() !== "") {
+  //     handleAddUser(username);
+  //     setUsername("");
+  //   }
+  // };
   return (
     <div className="flex flex-col  justify-center items-center h-[400px] gap-[10px]">
       <div>
@@ -25,13 +26,13 @@ const AddUser = ({
         <input
           type="text"
           placeholder="Enter a User..."
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={selectedUser}
+          onChange={(e) => setSelectedUser(e.target.value)}
           className=" w-[300px] p-[13px]   text-[20px] bg-[#000] border-2 border-[#c89666]  outline-none rounded-full text-[#ccc] shadow1 whitespace-normal mx-auto md:mr-[25px]"
         />
         <button
           className="w-[60px] py-[15px] px-[10px] text-[20px] font-bold bg-[#f1af71] hover:scale-100 flex justify-center items-center rounded-full "
-          onClick={addUser}
+          onClick={handleAddUser}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

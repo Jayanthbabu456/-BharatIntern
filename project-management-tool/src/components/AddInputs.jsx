@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
 import Buttons from "./Buttons";
+import { toast } from "react-toastify";
 
 const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
   const [title, setTitle] = useState("");
@@ -8,6 +9,7 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
+    toast.success("Task Added successfully!");
     if (!title || !description) {
       alert("Please enter a task and description.");
       return;
@@ -29,6 +31,7 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
 
   const handleDelete = (id) => {
     setTasks(tasks.filter((t) => (t.id === id ? false : true)));
+    toast.warn("Task Deleted successfully!");
   };
 
   const handleComplete = (id) => {
