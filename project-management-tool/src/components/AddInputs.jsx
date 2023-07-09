@@ -42,6 +42,14 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
     setTasks(tasks.map((t) => (t.id === id ? { ...t, complete: true } : t)));
   };
 
+  const handleEdit = (id, updatedTitle, updatedDescription) => {
+    setTasks(
+      tasks.map((t) =>
+        t.id === id ? { ...t, task: updatedTitle, desc: updatedDescription } : t
+      )
+    );
+  };
+
   return (
     <div>
       <div className="flex flex-col space-y-6 px-10 pt-16">
@@ -72,7 +80,7 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
         ) : null}
       </div>
       {tasks.length === 0 ? (
-        <div className=" w-full h-[280px] px-[10px] rounded-md flex flex-col justify-center items-center">
+        <div className="w-full h-[280px] px-[10px] rounded-md flex flex-col justify-center items-center">
           <p className="text-[30px] font-medium text-[#fff] font-montserrat">
             No tasks yet. Start by adding a task.
           </p>
@@ -88,6 +96,9 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
               date={t.date}
               handleDelete={() => handleDelete(t.id)}
               handleComplete={() => handleComplete(t.id)}
+              handleEdit={(updatedTitle, updatedDescription) =>
+                handleEdit(t.id, updatedTitle, updatedDescription)
+              }
               complete={t.complete}
             />
           ))}

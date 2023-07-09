@@ -11,6 +11,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
   const [add, setAdd] = useState(false);
+
   useEffect(() => {
     try {
       const storedData = localStorage.getItem("taskData");
@@ -39,6 +40,7 @@ const App = () => {
   const handleAdd = () => {
     setAdd(!add);
   };
+
   const handleAddUser = () => {
     if (!selectedUser) {
       alert("Please enter a User.");
@@ -61,6 +63,15 @@ const App = () => {
     if (selectedUser === users[index]) {
       setSelectedUser("");
     }
+  };
+
+  const handleEditTask = (taskId, updatedTask) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, ...updatedTask } : task
+      )
+    );
+    toast.success("Task updated successfully!");
   };
 
   return (
@@ -88,6 +99,7 @@ const App = () => {
             tasks={tasks}
             setTasks={setTasks}
             selectedUser={selectedUser}
+            handleEditTask={handleEditTask}
           />
         </div>
       </div>
