@@ -17,12 +17,12 @@ const Card = ({
   const [editedDescription, setEditedDescription] = useState(description);
   const [status, setStatus] = useState(complete ? "Completed" : "Pending");
 
-  useEffect(() => {
-    const storedStatus = localStorage.getItem(`taskStatus_${taskId}`);
-    if (storedStatus) {
-      setStatus(storedStatus);
-    }
-  }, [taskId]);
+  // useEffect(() => {
+  //   const storedStatus = localStorage.getItem(`taskStatus_${taskId}`);
+  //   if (storedStatus) {
+  //     setStatus(storedStatus);
+  //   }
+  // }, [taskId]);
 
   const handleEditSave = () => {
     if (!editedTitle || !editedDescription) {
@@ -46,9 +46,9 @@ const Card = ({
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem(`taskStatus_${taskId}`, status);
-  }, [taskId, status]);
+  // useEffect(() => {
+  //   localStorage.setItem(`taskStatus_${taskId}`, status);
+  // }, [taskId, status]);
 
   return (
     <div className="w-full px-[30px] py-[20px] overflow-y-auto flex flex-col justify-center bg-[#12343b]/90 rounded-[20px] shadow-xl border border-[#000]/50 gap-[10px]">

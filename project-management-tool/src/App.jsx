@@ -5,6 +5,7 @@ import AddUser from "./components/AddUser";
 import SelectUser from "./components/SelectUser";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import AOS from "aos";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -73,12 +74,18 @@ const App = () => {
     );
     toast.success("Task updated successfully!");
   };
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="bg-gradient-to-b from-[#e1b382] to-[#c89666] w-[100vw] h-[100vh] py-8 overflow-hidden">
       <Header handleAdd={handleAdd} />
       <div className="flex w-[90%] mx-auto gap-[30px] pt-[15px]">
-        <div className="bg-[#12343b] w-[40%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md sticky">
+        <div
+          className="bg-[#12343b] w-[40%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md sticky"
+          data-aos="fade-right"
+          data-aos-duration="1100"
+        >
           <AddUser
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}
@@ -87,7 +94,11 @@ const App = () => {
             handleDeleteUser={handleDeleteUser}
           />
         </div>
-        <div className="bg-[#12343b] w-[60%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md overflow-auto scroll">
+        <div
+          className="bg-[#12343b] w-[60%] h-[550px] p-[30px] shadow mb-[10px]  rounded-md overflow-auto scroll"
+          data-aos="fade-left"
+          data-aos-duration="1100"
+        >
           <SelectUser
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}

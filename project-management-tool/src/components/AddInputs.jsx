@@ -36,6 +36,7 @@ const AddInputs = ({ add, tasks, setTasks, selectedUser }) => {
   const handleDelete = (id) => {
     setTasks(tasks.filter((t) => (t.id === id ? false : true)));
     toast.warn("Task Deleted successfully!");
+    
   };
 
   const handleComplete = (id) => {
