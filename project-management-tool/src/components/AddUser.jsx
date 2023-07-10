@@ -41,7 +41,7 @@ const AddUser = ({
               className="text-[20px] font-montserrat text-[#fff] flex justify-between items-center border-2 border-[#c89666] w-full p-[15px] rounded-lg"
             >
               {user}
-              <button onClick={handleDeleteUser}>
+              <button onClick={() => handleDeleteUser(index)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="20px"

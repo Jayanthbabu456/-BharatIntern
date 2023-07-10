@@ -56,14 +56,16 @@ const App = () => {
 
   const handleDeleteUser = (index) => {
     const updatedUsers = [...users];
+    const deletedUser = updatedUsers[index];
     updatedUsers.splice(index, 1);
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
-    toast.warn("User Deleted successfully!");
 
-    if (selectedUser === users[index]) {
+    if (selectedUser === deletedUser) {
       setSelectedUser("");
     }
+
+    toast.warn("User Deleted successfully!");
   };
 
   const handleEditTask = (taskId, updatedTask) => {
