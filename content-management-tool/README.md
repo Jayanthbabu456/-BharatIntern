@@ -9,13 +9,6 @@
 ![image](./src/assets/WriteBlog.png)
 ![image](./src/assets/Blog.png)
 
-# Demo
-
-<video width="640" height="480" controls>
-  <source src="./src/assets/Project1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 ## About
 
 The blog app allows users to create and share blog posts with a title, description, background image, user image, and username, while providing features for reading, updating, and deleting posts. It utilizes localStorage to store posts locally on the user's device.
