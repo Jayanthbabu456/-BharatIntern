@@ -28,7 +28,7 @@ const Buttons = ({
         className="py-[15px] px-[20px] text-[16px] font-bold rounded-md bg-[#f1af71] shadow-current font-montserrat"
         onClick={handleCancle}
       >
-        CANCLE
+        CANCEL
       </button>
     </div>
   );
